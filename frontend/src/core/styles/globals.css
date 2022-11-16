@@ -4,6 +4,6 @@
 
 body {
   @apply bg-gray-100;
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    'Montserrat';
+  @apply text-lg;
+  @apply leading-6;
 }

@@ -11,7 +11,15 @@ module.exports = {
   ],
   darkMode: false,
   theme: {
-    fontFamily: {},
+    fontFamily: {
+      sans: [
+        'Montserrat',
+        'ui-sans-serif',
+        'system-ui',
+        '-apple-system',
+        'BlinkMacSystemFont',
+      ],
+    },
     extend: {
       colors: {
         primary: 'black',
