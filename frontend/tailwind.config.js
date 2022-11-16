@@ -11,8 +11,7 @@ module.exports = {
   ],
   darkMode: false,
   theme: {
-    fontFamily: {
-    },
+    fontFamily: {},
     extend: {
       colors: {
         primary: 'black',
@@ -33,4 +32,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-};
+}

@@ -1,15 +1,22 @@
-import React from 'react';
+import React from 'react'
 
-export const CoffeeCard: React.FC<{
-  title: string;
-  description: string;
-  date: string;
-}> = ({ title, description, date }) => {
+type CoffeeCardProps = {
+  title: string
+  description: string
+  date: string
+}
+
+export const CoffeeCard: React.FC<CoffeeCardProps> = ({
+  title,
+  description,
+}) => {
   return (
-    <div className="border border-black">
-      <h1 className="text-5xl text-primary">{title}</h1>
-      <p className="mt-2 text-sm text-grey">{description}</p>
-      <p className="mt-2 text-sm text-grey">{date}</p>
+    <div className='bg-white border border-solid border-stone-200 rounded-lg p-4'>
+      <div className='w-full h-64'></div>
+      <div className='border-t'>
+        <h1 className='font-semibold text-lg text-primary'>{title}</h1>
+        <p className='mt-2 text-sm text-grey'>{description}</p>
+      </div>
     </div>
-  );
-};
+  )
+}
