@@ -1,15 +1,10 @@
-/** @typedef { import('tailwindcss/defaultConfig') } DefaultConfig */
-/** @typedef { import('tailwindcss/defaultTheme') } DefaultTheme */
-/** @typedef { DefaultConfig & { theme: { extend: DefaultTheme } } } TailwindConfig */
-
-/** @type {TailwindConfig} */
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './app/**/*.{js,ts,jsx,tsx}',
+  content: [
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/app/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: false,
   theme: {
     fontFamily: {
       sans: [
@@ -24,6 +19,8 @@ module.exports = {
       colors: {
         primary: 'black',
         white: '#ffffff',
+        secondary: '#8e9882',
+        tertiary: '#c69f66',
       },
       borderRadius: {
         input: '0.625rem',
@@ -35,9 +32,6 @@ module.exports = {
         grey: '#44403C',
       },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 }
