@@ -1,10 +1,9 @@
-import { Tea } from '../domain/tea'
+import { ITea, CreateTea } from '../domain/tea.factory'
 
 export const TeaMapper = {
-  toDomain: (data: Tea) =>
-    new Tea({
-      title: data.title || '',
-      description: data.description || '',
-      imageUrl: data.imageUrl || '',
-    }),
+  toDomain: (data: ITea): ITea => {
+    const test = CreateTea(data)
+
+    return test
+  },
 }

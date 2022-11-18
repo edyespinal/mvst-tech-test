@@ -1,9 +1,9 @@
 import React from 'react'
 import { CoffeeCard } from 'src/app/coffees/presentation/components/CoffeeCard'
-import { Tea } from '../../domain/tea'
+import { ITea } from '../../domain/tea.factory'
 
 type ITeaPage = {
-  data: Tea[]
+  data: ITea[]
 }
 
 export const TeaPage: React.FC<ITeaPage> = ({ data }) => {
