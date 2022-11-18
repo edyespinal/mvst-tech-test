@@ -8,7 +8,7 @@ type Props = {
 
 export const CoffeePage: React.FC<Props> = ({ data }) => {
   return (
-    <div className='mx-6 mt-12'>
+    <div className='mx-6 mt-10'>
       <div className='mb-10'>
         <h1 className='font-semibold text-4xl mb-4'>Our beloved coffee</h1>
         <p className='font-light'>

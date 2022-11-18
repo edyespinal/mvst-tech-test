@@ -4,7 +4,7 @@ import { NextPage } from 'next'
 import React from 'react'
 
 export type NextPageWithLayout = NextPage & {
-  getLayout?: (page: React.ReactElement) => React.ReactNode
+  getLayout?: (page: any) => React.ReactNode
 }
 
 type AppPropsWithLayout = AppProps & {

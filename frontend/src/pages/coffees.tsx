@@ -7,6 +7,7 @@ import { NextPageWithLayout } from './_app'
 
 export async function getStaticProps() {
   const data = await fetchCoffeeService()
+
   return {
     props: {
       data,
@@ -14,11 +15,11 @@ export async function getStaticProps() {
   }
 }
 
-const Index: NextPageWithLayout = ({ data }: any): JSX.Element => {
+const CoffeesPage: NextPageWithLayout = ({ data }: any): JSX.Element => {
   const domainData = data.map(CoffeeMapper.toDomain)
   return <CoffeePage data={domainData} />
 }
 
-export default Index
+export default CoffeesPage
 
-Index.getLayout = (page: React.ReactElement) => <Layout>{page}</Layout>
+CoffeesPage.getLayout = page => <Layout>{page}</Layout>
