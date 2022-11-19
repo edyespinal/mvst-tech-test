@@ -1,9 +1,9 @@
 import React from 'react'
-import { Coffee } from '../../domain/coffee'
+import { ICoffee } from '../../domain/coffee'
 import { CoffeeCard } from '../components/CoffeeCard'
 
 type Props = {
-  data: Coffee[]
+  data: ICoffee[]
 }
 
 export const CoffeePage: React.FC<Props> = ({ data }) => {

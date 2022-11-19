@@ -4,15 +4,9 @@ import { IProduct } from 'src/app/typings/product'
 // I would like to discuss the pros / cons of each approach if possible.
 
 export type ITea = IProduct & {
-  getDate: () => string
+  getDate?: () => string
 }
 
-/**
- * Tea factory function
- *
- * @param Tea
- * @returns Tea
- */
 function CreateTea({ title, description, imageUrl }: ITea): ITea {
   const addedAt = Date()
 

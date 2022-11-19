@@ -1,10 +1,13 @@
 import { fetchTeaService } from 'src/app/teas/application/fetchTeaService'
+import { ITea } from 'src/app/teas/domain/tea.factory'
 import { TeaMapper } from 'src/app/teas/infrastructure/tea.mapper'
 import { TeaPage } from 'src/app/teas/presentation/pages/TeaPage'
 import { Layout } from 'src/components/layout/Layout'
 import { NextPageWithLayout } from './_app'
 
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<{
+  props: { data: ITea[] }
+}> {
   const data = await fetchTeaService()
 
   return {

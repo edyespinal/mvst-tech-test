@@ -1,5 +1,7 @@
+import { ITea } from '../domain/tea.factory'
+
 export class TeaFacade {
-  async fetchAll() {
+  async fetchAll(): Promise<ITea[]> {
     return [
       {
         title: 'GEPA Chiapas with two lines',
