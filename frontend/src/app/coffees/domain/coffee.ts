@@ -3,7 +3,7 @@ import { IProduct } from 'src/app/typings/product'
 // I implemented this as a Factory function instead of using a class.
 // I would like to discuss the pros / cons of each approach if possible.
 
-export type ICoffee = IProduct & {
+export interface ICoffee extends IProduct {
   type: 'arabic' | 'robust'
   getDate?: () => string
 }

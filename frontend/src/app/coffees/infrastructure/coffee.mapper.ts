@@ -1,5 +1,5 @@
 import { CreateCoffee, ICoffee } from '../domain/coffee'
 
 export const CoffeeMapper = {
-  toDomain: (data: ICoffee): ICoffee => CreateCoffee(data),
+  toDomain: (coffeeData: ICoffee): ICoffee => CreateCoffee(coffeeData),
 }
