@@ -9,7 +9,6 @@ module.exports = {
     ]
   },
   images: {
-    // loader: 'imgix',
-    // path: [process.env.NEXT_PUBLIC_AWS_BUCKET_PATH],
+    domains: [process.env.IMAGE_HOST],
   },
 }
