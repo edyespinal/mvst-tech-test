@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { Coffee, CoffeeSchema } from 'src/coffees/coffees.schema';
+import { Coffee, CoffeeSchema } from './coffees.schema';
 import { CoffeesController } from './coffees.controller';
 import { CoffeesService } from './coffees.service';
 
