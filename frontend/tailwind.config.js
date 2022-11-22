@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
@@ -23,18 +24,23 @@ module.exports = {
         tertiary: '#c69f66',
         grey: '#e7e3d9',
         lightgrey: '#fbfaf8',
+        red: '#cd4c15',
+        green: '#758266',
       },
       borderRadius: {
         input: '0.625rem',
       },
       textColor: {
-        black: '#32332e',
+        black: 'black',
         primary: '#32332e',
-        secondary: '#e7e3d9',
         grey: '#615f5b',
         lightgrey: '#8a8370',
+        offwhite: '#fbfaf8',
+      },
+      maxWidth: {
+        100: '70rem',
       },
     },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 }
