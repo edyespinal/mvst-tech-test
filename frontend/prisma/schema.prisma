@@ -9,15 +9,17 @@ datasource db {
 
 model coffees {
   id          String @id @default(auto()) @map("_id") @db.ObjectId
+  brand       String
   description String
   imageUrl    String
-  title       String
+  name        String
   type        String
 }
 
 model teas {
   id          String @id @default(auto()) @map("_id") @db.ObjectId
+  brand       String
   description String
   imageUrl    String
-  title       String
+  name        String
 }
