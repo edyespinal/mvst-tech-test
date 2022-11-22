@@ -1,5 +1,5 @@
-import { CoffeeMapper } from './coffee.mapper';
+import { CoffeeMapper } from './coffee.mapper'
 
 it.skip('CoffeeMapper', () => {
-  expect(1).toEqual(1);
-});
+  expect(1).toEqual(1)
+})
