@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 import { CoffeesService } from './coffees.service';
 
 @Controller({
-  path: 'coffees',
+  path: 'v1/api/coffees',
   version: '1',
 })
 export class CoffeesController {
