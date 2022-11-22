@@ -1,15 +1,17 @@
-import { IProduct } from 'src/app/typings/product'
+import { coffees } from '@prisma/client'
 
 // I implemented this as a Factory function instead of using a class.
 // I would like to discuss the pros / cons of each approach if possible.
 
-export interface ICoffee extends IProduct {
-  type: 'arabic' | 'robust'
+export interface ICoffee extends coffees {
+  type: 'arabic' | 'robusta'
   getDate?: () => string
 }
 
 function CreateCoffee({
-  title,
+  id,
+  name,
+  brand,
   description,
   imageUrl,
   type,
@@ -22,12 +24,16 @@ function CreateCoffee({
     },
   }
 
-  const coffee: ICoffee = Object.create(coffeeActions)
+  let coffee: ICoffee = Object.create(coffeeActions)
 
-  coffee.title = title
-  coffee.description = description
-  coffee.imageUrl = imageUrl
-  coffee.type = type
+  coffee = {
+    id,
+    name,
+    brand,
+    description,
+    imageUrl,
+    type,
+  }
 
   return coffee
 }

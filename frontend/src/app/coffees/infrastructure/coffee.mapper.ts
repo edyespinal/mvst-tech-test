@@ -1,4 +1,4 @@
-import { CreateCoffee, ICoffee } from '../domain/coffee'
+import { ICoffee, CreateCoffee } from '../domain/coffee.factory'
 
 export const CoffeeMapper = {
   toDomain: (coffeeData: ICoffee): ICoffee => CreateCoffee(coffeeData),

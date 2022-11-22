@@ -1,4 +1,4 @@
-import { ICoffee } from '../domain/coffee'
+import { ICoffee } from '../domain/coffee.factory'
 import { CoffeeFacade } from '../infrastructure/coffee.facade'
 
 export const fetchCoffeeService = (): Promise<ICoffee[]> => {

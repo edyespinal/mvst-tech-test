@@ -1,12 +1,12 @@
 import { http } from '@/utils/http'
-import { ICoffee } from '../domain/coffee'
+import { ICoffee } from '../domain/coffee.factory'
 
 export class CoffeeFacade {
   async fetchAll(): Promise<ICoffee[]> {
-    const fetched: ICoffee[] = await http
-      .get('/api/coffees')
+    const fetchAllCoffees = await http
+      .get<ICoffee[]>('/api/coffees')
       .then(res => res.data)
 
-    return fetched
+    return fetchAllCoffees
   }
 }
