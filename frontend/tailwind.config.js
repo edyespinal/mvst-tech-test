@@ -43,4 +43,5 @@ module.exports = {
     },
   },
   plugins: [require('@tailwindcss/line-clamp')],
+  safelist: ['bg-red', 'bg-green'],
 }

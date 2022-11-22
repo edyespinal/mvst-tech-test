@@ -25,12 +25,12 @@ export const CoffeeCard: React.FC<Props> = ({
 
       <div className='px-4 pb-4'>
         <div className='flex gap-2 items-start w-full border-t pt-2 '>
-          <div className='w-4/6'>
+          <div className='w-[65%]'>
             <h3 className='font-semibold text-lg line-clamp-2'>
               {brand} {name}
             </h3>
           </div>
-          <div className='w-2/6 text-right overflow-hidden'>
+          <div className='w-[35%] text-right overflow-hidden'>
             <TypeTag type={type} color={bgColorByType(type)} />
           </div>
         </div>
