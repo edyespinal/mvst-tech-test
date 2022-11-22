@@ -1,6 +1,6 @@
 import React from 'react'
-import { CoffeeCard } from 'src/app/coffees/presentation/components/CoffeeCard'
 import { ITea } from '../../domain/tea.factory'
+import { TeaCard } from '../components/TeaCard'
 
 type ITeaPage = {
   data: ITea[]
@@ -8,23 +8,28 @@ type ITeaPage = {
 
 export const TeaPage: React.FC<ITeaPage> = ({ data }) => {
   return (
-    <div className='mx-6 mt-12'>
+    <div className='mx-6 mt-10 lg:mx-0'>
       <div className='mb-10'>
-        <h1 className='font-semibold text-4xl mb-4'>
+        <h2 className='font-semibold text-4xl mb-4'>
           Just you, hot water and our tea
-        </h1>
-        <p className='font-light'>
+        </h2>
+        <p className='font-light text-grey'>
           No pesticies or artificial flavours. We promise!
         </p>
       </div>
-      {data.map(tea => (
-        <CoffeeCard
-          key={tea.title}
-          title={tea.title}
-          imageUrl={tea.imageUrl}
-          description={tea.description}
-        />
-      ))}
+
+      <div className='sm:grid sm:gap-6 sm:grid-cols-2 lg:grid-cols-4'>
+        {data.map(tea => (
+          <div key={tea.id} className='mb-6 last:mb-0 md:mb-0'>
+            <TeaCard
+              brand={tea.brand}
+              name={tea.name}
+              imageUrl={tea.imageUrl}
+              description={tea.description}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
