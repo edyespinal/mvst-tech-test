@@ -4,7 +4,7 @@ import { ITea } from '../domain/tea.factory'
 export class TeaFacade {
   async fetchAll(): Promise<ITea[]> {
     const fetchAllTeas = await http
-      .get<ITea[]>('/api/teas')
+      .get<ITea[]>('/v1/api/teas')
       .then(res => res.data)
 
     return fetchAllTeas
