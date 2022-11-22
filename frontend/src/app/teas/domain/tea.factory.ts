@@ -1,13 +1,13 @@
-import { IProduct } from 'src/app/typings/product'
+import { teas } from '@prisma/client'
 
 // I implemented this as a Factory function instead of using a class.
 // I would like to discuss the pros / cons of each approach if possible.
 
-export type ITea = IProduct & {
+export interface ITea extends teas {
   getDate?: () => string
 }
 
-function CreateTea({ title, description, imageUrl }: ITea): ITea {
+function CreateTea({ id, brand, name, description, imageUrl }: ITea): ITea {
   const addedAt = Date()
 
   const teaActions = {
@@ -16,11 +16,15 @@ function CreateTea({ title, description, imageUrl }: ITea): ITea {
     },
   }
 
-  const tea: ITea = Object.create(teaActions)
+  let tea: ITea = Object.create(teaActions)
 
-  tea.title = title
-  tea.description = description
-  tea.imageUrl = imageUrl
+  tea = {
+    id,
+    brand,
+    name,
+    description,
+    imageUrl,
+  }
 
   return tea
 }

@@ -1,13 +1,12 @@
+import { http } from '@/utils/http'
 import { ITea } from '../domain/tea.factory'
 
 export class TeaFacade {
   async fetchAll(): Promise<ITea[]> {
-    return [
-      {
-        title: 'GEPA Chiapas with two lines',
-        description: 'Distributed from the nice countryside of São Paulo',
-        imageUrl: '/static/img/placeholder.png',
-      },
-    ]
+    const fetchAllTeas = await http
+      .get<ITea[]>('/api/teas')
+      .then(res => res.data)
+
+    return fetchAllTeas
   }
 }
