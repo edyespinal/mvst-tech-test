@@ -1,87 +1,84 @@
 ## MVST Challenge
 
-Hi, thanks for applying to MVST, the next step of the process is a coding challenge. If you have anything that we can help you with, just ping us.
+Hi, thanks for the fun coding challenge!
+Let's just get some thigns out of the way first...
 
+- Did it take me more time than I expected? **Yes**
+- Did I try to implement some things I haven't used before? **Yes**
+- Was it a good idea to implement things I'm not sure will work? **Probably not...**
+- Was it worth it? **Yes, and it was fun as well**
 
-## How to get started 
-  To get started with the challenge, first read the rest of this readme. Then you can go on and 
-  read the README.md inside the frontend and backend folders.
-  
-  [Backend README](https://github.com/mvst-h/mvst-coffee-tea-challenge/blob/master/backend/README.md)
-  
-  [Frontend README](https://github.com/mvst-h/mvst-coffee-tea-challenge/blob/master/frontend/README.md)
+## Before we start
 
+I made some assumptions that help clarify some of the decisions made on the project. The first one is that this project is not a big project containing millions of products or users. With this in mind I decided to opt for a `NoSQL` database (`MongoDB`) instead of `PostgreSQL`. Although relational databases are more scalable on the long term I thought the flexibility and lower cost (I might be way off here) of a non-relational database was good enough for this project.
 
-## Introduction 
+I decided to try an implement [`tRPC`](https://trpc.io/) (which I've never used before) combined with [`prisma`](https://www.prisma.io/) to get a solid, type-safe, scalable and stable API and data layer for the application.
 
-This challenge is a project that already contains backend and frontend structure. 
+**(I have to say I'm quite impressed with tRPC)**
 
-The backend and frontend are not connected at the beginning of the challenge. 
+I converted some `classes` in the frontend to a `factory` function. I didn't implement this pattern for every `class` since I'm still debating on the pros and cons of both. I would love to hear your opinion on this!
 
-Your task will be to implement some requirements using this repository, but you may own the code. So feel free to refactor, readjust and improve if you feel like it. Also feel free to host the code, update the readme. 
+## The Codebase
 
-## Task 
+### Backend
 
-After running the frontend. You will see a list of coffees at "localhost:4000/coffees".
+Love the choice of Nest for this. I don't have a lot of experience with it, but so far it has been a pleasant experience. Having said that, there were no major changes to backend.
 
-### Task 1 - Coffee list :coffee:
-1. This list is currently static on the frontend. The first task is to connect the backend and the frontend to properly render the list with the data coming from the backend.
+I added the `Coffees` and `Teas` modules, both of which only have a method to get all the documents form the database.
+This would have to be worked on to add better `error handling` and `pagination` in case the products start to grow in numbers!
 
-2. Update both the frontend and the backend to reflect the design in the following file Figma. 
-    https://www.figma.com/file/eXKRZRFUDXaXEbRq2SnikI/Coding-Challenge?node-id=2%3A2
+Also, right now the backend is "wide open" with `CORS` allowing calls from anywhere without requiring some form of authorization.
 
-### Task 2 - Tea list :tea:
+You can find a deployed version of the backend here:
+[MVST Backend](https://mvst-tech-test-backend-r0904lapn-edyespinal.vercel.app/)
 
-1. After part 1 is finished, we need to implement the second list. A list of teas. We need to add the backend and frontend to reflect the similar data in the design.
+There are only two endpoint defined:
 
-https://www.figma.com/file/eXKRZRFUDXaXEbRq2SnikI/Coding-Challenge?node-id=2%3A2
+- GET: Coffees
 
-### Finishing the task
-1. Create a Pull Request with the coding challenge.
-2. Tell MVST HR Team that you are done with it
-3. That is it :)
+```
+https://mvst-tech-test-backend-r0904lapn-edyespinal.vercel.app/v1/api/coffees
+```
 
-### Expected result
+- GET: Teas
 
-1. The challenge is completed if both lists are rendering on the frontend and fetching on the backend.
-2. Using nest.js is a mandatory thing from this project.
-3. Next.js is there to help you have a quick start and focus on the coding. You can replace to Create React App if you feel like it would be faster.
+```
+https://mvst-tech-test-backend-r0904lapn-edyespinal.vercel.app/v1/api/teas
+```
 
-### What we will check
-   To be transparent this are some things we consider important in the challenge
-  
-  1. General skills of programming, we will analise your code not only to have the lists rendering from the backend, but also the code quality in other ways.
-  2. Outcome in comparison with the design
+### Frontend
 
+I love even more the choice of NextJS for the frontend!
 
-### ⚠️ Important notes
-The current code is just a base project that you can easily start focusing on coding. Please take in consideration that the decisions of folder structure, backend layers and architecture and other decisions has to be yours. 
+I decided to connect the frontend and backend using `tRPC` and `Prisma` right after running `yarn` to add all the `GraphQL` dependencies. Implementing `GraphQL` for this project maybe would have been easy but I had been looking for a project to test `tRPC` for a while now... so thanks!
 
-### FAQ
+Things I think are missing here are better testing as I'm not very familiar with it (but I'd like to be) and Storybook as I saw it was already a dependency on the project.
 
--  I am not familiar with nest.js and next.js
-Don't spend much time trying to make a good project for nest and next, that is not what we want to analise in those challenges. They are just there so you have a running project and can show us some code.
-
-For the frontend focus more in the react part then in the next.js part. 
-For the backend part, focus more in the layers you add in the code than in really specifics for nest.js
-
-- I don't want to use tailwind
-Feel free to use pure css ( we love it ).
-Feel free to use any other library that might help you
-
-
- 
+You can find a deployed version of the app here: [MVST Frontend](https://main--mvst-tech-test-frontend.netlify.app/)
 
 ### What would you improve if given more time?
-Please fill
 
---
-### Feedback for the challenge
-Please Fill
+Backend:
+
+- Error handling
+- RESTFul API for coffees and teas
+- Authorization
+
+Frontend:
+
+- Better folder structure
+- Consistent use of patterns (e.g. Classes vs Factory functions)
+- Minor details on outcome vs design provided
+- Better testing
 
 ---
 
+### Feedback for the challenge
 
-Thanks and have a good challenge ;)
+Nothing really, I think it is a good challenge with a great starting point to start focusing on the project without worrying about boilerplate.
 
-MVST Team
+---
+
+Cheers 🍻
+
+Edy Espinal
