@@ -1,28 +1,39 @@
-import React from 'react'
 import Image from 'next/image'
+import { ICoffee } from '../../domain/coffee.factory'
+import { PRODUCT_IMAGE_PLACEHOLDER } from '@/utils/constants'
+import { TypeTag } from './TypeTag'
+import { bgColorByType } from '@/utils/bgColor'
 
-type CoffeeCardProps = {
-  title: string
-  imageUrl: string
-  description?: string
-  type?: string
-  date?: string
-}
+type Props = Pick<ICoffee, 'brand' | 'name' | 'imageUrl' | 'type'>
 
-export const CoffeeCard: React.FC<CoffeeCardProps> = ({
-  title,
+export const CoffeeCard: React.FC<Props> = ({
+  brand,
+  name,
   imageUrl,
-  description,
+  type,
 }) => {
   return (
-    <div className='bg-white border border-solid border-grey rounded-lg'>
-      <div className='relative w-full h-64 px-10 py-4 grid place-items-center'>
-        <Image src={imageUrl} height={248} width={248} alt={title} />
+    <div className='bg-white min-w-[264px] border border-solid border-grey rounded-lg hover:drop-shadow-xl hover:cursor-pointer'>
+      <div className='relative w-full h-70 px-2 py-4 grid place-items-center'>
+        <Image
+          src={imageUrl || PRODUCT_IMAGE_PLACEHOLDER}
+          height={248}
+          width={248}
+          alt={`${brand} - ${name}`}
+        />
       </div>
 
-      <div className='border-t pt-2 px-4 pb-4'>
-        <h1 className='font-semibold text-lg text-primary'>{title}</h1>
-        <p className='mt-2 text-sm text-grey'>{description}</p>
+      <div className='px-4 pb-4'>
+        <div className='flex gap-2 items-start w-full border-t pt-2 '>
+          <div className='w-4/6'>
+            <h3 className='font-semibold text-lg line-clamp-2'>
+              {brand} {name}
+            </h3>
+          </div>
+          <div className='w-2/6 text-right overflow-hidden'>
+            <TypeTag type={type} color={bgColorByType(type)} />
+          </div>
+        </div>
       </div>
     </div>
   )
