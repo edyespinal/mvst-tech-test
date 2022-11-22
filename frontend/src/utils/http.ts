@@ -13,8 +13,6 @@ function getBaseUrl() {
   return process.env.BASE_URL || 'http://localhost:3000'
 }
 
-console.log(process.env.BASE_URL)
-
 axios.defaults.baseURL = getBaseUrl()
 
 export const http = axios
