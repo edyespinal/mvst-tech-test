@@ -1,5 +1,5 @@
-import { Footer } from './presentation/components/Footer'
-import { Header } from './presentation/components/Header'
+import { Footer } from './components/Footer'
+import { Header } from './components/Header'
 
 interface ILayout {
   children: React.ReactNode
@@ -9,7 +9,7 @@ export const Layout: React.FC<ILayout> = ({ children }) => {
   return (
     <>
       <Header />
-      {children}
+      <div className='max-w-100 mx-auto'>{children}</div>
       <Footer />
     </>
   )
