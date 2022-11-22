@@ -1,13 +1,14 @@
-import { fetchTeaService } from 'src/app/teas/application/fetchTeaService'
-import { ITea } from 'src/app/teas/domain/tea.factory'
-import { TeaMapper } from 'src/app/teas/infrastructure/tea.mapper'
-import { TeaPage } from 'src/app/teas/presentation/pages/TeaPage'
-import { Layout } from 'src/components/layout/Layout'
-import { NextPageWithLayout } from './_app'
+import { fetchTeaService } from '@/app/teas/application/fetchTeaService'
+import { ITea } from '@/app/teas/domain/tea.factory'
+import { TeaMapper } from '@/app/teas/infrastructure/tea.mapper'
+import { TeaPage } from '@/app/teas/presentation/pages/TeaPage'
+import { Layout } from '@/components/layout/Layout'
 
-export async function getStaticProps(): Promise<{
-  props: { data: ITea[] }
-}> {
+interface Props {
+  data: ITea[]
+}
+
+export async function getStaticProps(): Promise<{ props: Props }> {
   const data = await fetchTeaService()
 
   return {
@@ -17,7 +18,7 @@ export async function getStaticProps(): Promise<{
   }
 }
 
-const TeasPage: NextPageWithLayout = ({ data }: any): JSX.Element => {
+const TeasPage = ({ data }: Props): JSX.Element => {
   const domainData = data.map(TeaMapper.toDomain)
 
   return <TeaPage data={domainData} />
@@ -25,4 +26,4 @@ const TeasPage: NextPageWithLayout = ({ data }: any): JSX.Element => {
 
 export default TeasPage
 
-TeasPage.getLayout = page => <Layout>{page}</Layout>
+TeasPage.getLayout = (page: React.ReactNode) => <Layout>{page}</Layout>
