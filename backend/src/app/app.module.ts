@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { TeasModule } from 'src/teas/teas.module';
+import { TeasModule } from '../teas/teas.module';
 import { CoffeesModule } from '../coffees/coffees.module';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
