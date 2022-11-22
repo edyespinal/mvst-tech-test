@@ -6,4 +6,5 @@ body {
   @apply bg-lightgrey;
   @apply text-lg;
   @apply leading-6;
+  @apply text-primary;
 }
